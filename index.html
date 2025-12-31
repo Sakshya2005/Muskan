@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muskan Patel Portfolio</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "t2DsvVsHpdzZR9k2G",
+        });
+      })();
+    </script>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --bg-main: #ffffff;
+        --bg-soft: #f9f9f9;
+        --text-primary: #1a2b48;
+        --text-secondary: #5f6c7b;
+        --accent: #32d74b;
+        --accent-blue: #007aff;
+        --border-soft: #eaeaea;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: var(--bg-main);
+        color: var(--text-primary);
+        line-height: 1.75;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* ================= HEADER ================= */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.75);
+        border-bottom: 1px solid var(--border-soft);
+      }
+
+      .nav {
+        max-width: 1200px;
+        margin: auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .logo {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: 0.2px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        font-weight: 500;
+      }
+      .hamburger {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--border-soft);
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        background: var(--bg-main);
+      }
+      .hamburger span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: var(--text-primary);
+        border-radius: 2px;
+        transition: 0.2s ease;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(4px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-4px) rotate(-45deg);
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-blue);
+      }
+
+      main {
+        margin-top: 90px;
+      }
+
+      /* ================= HERO ================= */
+      .hero {
+        max-width: 1200px;
+        margin: auto;
+        padding: 4rem 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(2rem, 5.5vw, 3.5rem);
+        font-weight: 300;
+        letter-spacing: -0.5px;
+      }
+
+      .hero p {
+        color: var(--text-secondary);
+        max-width: 520px;
+        margin: 1rem 0 2rem;
+      }
+
+      .btn {
+        background: var(--accent);
+        color: #fff;
+        padding: 0.9rem 1.6rem;
+        border-radius: 10px;
+        font-weight: 600;
+        display: inline-block;
+        transition: 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(50, 215, 75, 0.3);
+      }
+      .btn-row {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .hero img {
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+        border: 3px solid var(--border-soft);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        margin: 0 auto;
+      }
+
+      /* ================= ABOUT ================= */
+      .about {
+        background: var(--bg-soft);
+      }
+      .about-grid {
+        display: grid;
+        gap: 2rem;
+        align-items: center;
+      }
+      .about-photo img {
+        width: 260px;
+        height: 260px;
+        border-radius: 20px;
+        object-fit: cover;
+        object-position: center;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        margin: 0 auto;
+      }
+
+      /* ================= SECTIONS ================= */
+      section {
+        padding: 5rem 1.5rem;
+        scroll-margin-top: 100px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 2.4rem;
+        font-weight: 700;
+        letter-spacing: -0.2px;
+      }
+
+      .section-title p {
+        color: var(--text-secondary);
+        margin-top: 0.5rem;
+      }
+
+      /* ================= EXPERTISE ================= */
+      .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+      }
+
+      .expertise-card {
+        background: var(--bg-soft);
+        padding: 2rem;
+        border-radius: 16px;
+        transition: 0.2s ease;
+      }
+
+      .expertise-card h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      .expertise-card p {
+        font-size: 1rem;
+      }
+      .expertise-card i {
+        font-size: 1.8rem;
+        color: var(--accent-blue);
+        margin-bottom: 1rem;
+      }
+
+      .expertise-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      /* ================= PHILOSOPHY ================= */
+      .philosophy {
+        background: var(--bg-soft);
+        text-align: center;
+      }
+
+      .philosophy p {
+        max-width: 780px;
+        margin: auto;
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+      }
+
+      /* ================= TIMELINE ================= */
+      .timeline {
+        max-width: 700px;
+        margin: auto;
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background: var(--border-soft);
+      }
+
+      .timeline-item {
+        width: 50%;
+        padding: 1.5rem;
+      }
+
+      .timeline-item:nth-child(odd) {
+        text-align: right;
+      }
+      .timeline-item:nth-child(even) {
+        margin-left: 50%;
+      }
+
+      /* Certifications */
+      .cert-grid {
+        max-width: 1100px;
+        margin: auto;
+        padding: 1rem 1.5rem 4rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .cert-card {
+        background: #fff;
+        border: 1px solid var(--border-soft);
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(24, 32, 53, 0.08);
+        padding: 1.25rem;
+        display: grid;
+        gap: 0.45rem;
+        cursor: pointer;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .cert-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 16px 44px rgba(24, 32, 53, 0.12);
+      }
+      .cert-title {
+        font-weight: 700;
+        font-size: 1.05rem;
+      }
+      .cert-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        background: #f7eef4;
+        color: #a53d78;
+        border: 1px solid #f0d7e6;
+      }
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(18, 22, 33, 0.5);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        z-index: 2000;
+      }
+      .overlay.open {
+        display: flex;
+      }
+      .modal {
+        width: min(920px, 100%);
+        max-height: 86vh;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 16px 44px rgba(24, 32, 53, 0.12);
+        overflow: hidden;
+        transform: translateY(10px);
+        opacity: 0;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+      .overlay.open .modal {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 1rem;
+        padding: 1.25rem 1.25rem 0.75rem;
+      }
+      .modal-title {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+      .modal-close {
+        border: none;
+        background: transparent;
+        font-size: 1.25rem;
+        cursor: pointer;
+        line-height: 1;
+        color: var(--text-secondary);
+      }
+      .modal-body {
+        padding: 0 1.25rem 1.25rem;
+        overflow: auto;
+      }
+      .modal-meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        color: var(--text-secondary);
+      }
+      .modal-desc {
+        margin-bottom: 0.75rem;
+      }
+      .image-wrap {
+        border: 1px solid var(--border-soft);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(24, 32, 53, 0.08);
+        cursor: zoom-in;
+        display: grid;
+        place-items: center;
+        background: #f9fafc;
+      }
+      .image-wrap img {
+        max-height: 60vh;
+        object-fit: contain;
+        transition: transform 0.2s ease;
+      }
+      .image-wrap.zoom {
+        cursor: zoom-out;
+      }
+      .image-wrap.zoom img {
+        transform: scale(1.15);
+      }
+
+      /* ================= CONTACT ================= */
+      .contact-form {
+        max-width: 500px;
+        margin: auto;
+        display: grid;
+        gap: 1.2rem;
+      }
+
+      input,
+      textarea {
+        padding: 0.9rem;
+        border-radius: 10px;
+        border: 1px solid var(--border-soft);
+        font-family: inherit;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      /* ================= ANIMATION ================= */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.6s ease;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (min-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hero img {
+          width: 280px;
+          height: 280px;
+        }
+        .about-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .about-photo img {
+          width: 420px;
+          height: 420px;
+        }
+        .cert-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: calc(100% + 8px);
+          left: 16px;
+          right: 16px;
+          background: #fff;
+          border: 1px solid var(--border-soft);
+          border-radius: 12px;
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+          padding: 1rem;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        .nav-links a {
+          padding: 0.5rem 0;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .hamburger {
+          display: inline-flex;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .timeline::before {
+          display: none;
+        }
+        .timeline-item {
+          width: 100%;
+          text-align: left;
+          margin-left: 0;
+        }
+        .timeline-item:nth-child(even) {
+          margin-left: 0;
+        }
+        .cert-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (min-width: 992px) {
+        .cert-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="nav">
+        <div class="logo">Muskan Patel</div>
+        <button
+          class="hamburger"
+          id="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#about">About</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#experience">Experience</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero reveal">
+        <div>
+          <h1>Building Healthy, Disciplined & Confident Students</h1>
+          <p>
+            Certified Physical Education teacher currently working at Mount
+            Carmel college, Lucknow dedicated to student fitness, sportsmanship,
+            and holistic development.
+          </p>
+          <div class="btn-row">
+            <a href="#contact" class="btn">Contact Me</a>
+            <a
+              href="Muskan Patel Resume.pdf"
+              id="download-cv"
+              download
+              class="btn"
+              >Download CV</a
+            >
+          </div>
+        </div>
+        <div>
+          <img src="home.jpeg" alt="School Sports Teacher" />
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="about reveal">
+        <div class="container">
+          <div class="section-title">
+            <h2>About Me</h2>
+            <p>
+              Dedicated to student growth through movement, discipline, and
+              teamwork
+            </p>
+          </div>
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                I am a passionate and dedicated Sports Teacher currently working
+                at Mount Carmel College. My mission is to promote physical
+                fitness, confidence, discipline, and teamwork among students
+                while helping them develop a lifelong appreciation for sports
+                and healthy living. I strongly believe that sports are essential
+                for building character, leadership, resilience, and a positive
+                mindset.
+              </p>
+              <p>
+                I value inclusivity, fairness, and sportsmanship, and I strive
+                to create a safe and encouraging environment where every
+                student—especially young girls—feels confident to participate
+                and grow. Through structured training, fitness activities, and
+                team-based learning, I aim to nurture well-rounded individuals
+                who carry the values of discipline, respect, and perseverance
+                both on and off the field.
+              </p>
+            </div>
+            <div class="about-photo">
+              <img src="about.jpeg" alt="Muskan Patel" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERTISE -->
+      <section id="expertise" class="container reveal">
+        <div class="section-title">
+          <h2>Areas of Expertise</h2>
+          <p>Curriculum-aligned sports education and student development</p>
+        </div>
+
+        <div class="expertise-grid">
+          <div class="expertise-card">
+            <i class="fa-solid fa-school"></i>
+            <h3>Training Minds. Strengthening Bodies. Building Leaders.</h3>
+            <p>
+              Through structured sports education and disciplined training, I
+              focus on developing not only physical strength but also mental
+              toughness, confidence, and leadership qualities in students.
+              Sports become a foundation for success in academics and life.
+            </p>
+          </div>
+          <div class="expertise-card">
+            <i class="fa-solid fa-futbol"></i>
+            <h3>Inspiring Excellence On and Off the Field</h3>
+            <p>
+              I guide students to strive for excellence by nurturing skill,
+              sportsmanship, and a positive competitive spirit. My approach
+              emphasizes fair play, teamwork, and resilience, helping students
+              grow into responsible and confident individuals.
+            </p>
+          </div>
+          <div class="expertise-card">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <h3>Empowering Students Through Sports & Wellness</h3>
+            <p>
+              By promoting fitness, wellness, and healthy habits, I empower
+              students to take ownership of their physical and mental
+              well-being. My goal is to create a safe, inclusive environment
+              where every student feels motivated to participate and excel.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHILOSOPHY -->
+      <section id="philosophy" class="philosophy reveal">
+        <div class="container">
+          <div class="section-title">
+            <h2>Teaching Philosophy</h2>
+          </div>
+          <p>
+            I believe physical education is essential for the holistic
+            development of every child. My approach focuses on nurturing
+            students’ physical fitness, confidence, and emotional well-being
+            through inclusive, age-appropriate, and structured sports
+            activities. I strive to create a safe and encouraging environment
+            where every student feels valued and motivated to participate. By
+            emphasizing individual growth, teamwork, discipline, and fair play,
+            I help students develop healthy habits, self-belief, and resilience
+            that support both academic success and lifelong well-being.
+          </p>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="container reveal">
+        <div class="section-title">
+          <h2>Professional Experience</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Assitant Sports Teacher</h4>
+            <p>Mount Carmel College(Apr 2025 – Present)</p>
+          </div>
+          <!-- <div class="timeline-item">
+            <h4>Assistant Physical Education Instructor</h4>
+            <p>XYZ Public School (2017 – 2021)</p>
+          </div> -->
+        </div>
+      </section>
+
+      <section id="certifications" class="reveal">
+        <div class="container">
+          <div class="section-title">
+            <h2>Certifications & Training</h2>
+            <p>
+              This page showcases my professional certifications and training
+              programs that enhance my expertise in physical education, sports
+              coaching, and student wellness. Click on any certificate to view
+              complete details.
+            </p>
+          </div>
+        </div>
+        <section class="cert-grid" id="cert-grid" aria-live="polite"></section>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="container reveal">
+        <div class="section-title">
+          <h2>Contact Me</h2>
+          <!-- <p>For school programs, events, or academic coordination</p> -->
+        </div>
+
+        <form class="contact-form">
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="email" id="email" placeholder="Email Address" required />
+          <input type="text" id="subject" placeholder="Subject" required />
+          <textarea id="message" placeholder="Message"></textarea>
+          <button type="button" class="btn" onclick="sendEmail()">
+            Send Message
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <div
+      class="overlay"
+      id="overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal" id="modal">
+        <div class="modal-header">
+          <div id="modal-title" class="modal-title"></div>
+          <button class="modal-close" id="modal-close" aria-label="Close">
+            ❌
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-meta" id="modal-meta"></div>
+          <p class="modal-desc" id="modal-desc"></p>
+          <div class="image-wrap" id="image-wrap">
+            <img id="modal-img" alt="" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <footer>
+      © 2025 Sports Teacher Portfolio • Designed with clarity & purpose
+    </footer> -->
+
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      reveals.forEach((el) => observer.observe(el));
+
+      document
+        .querySelector(".contact-form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Message sent successfully!");
+        });
+
+      const toggle = document.getElementById("nav-toggle");
+      const links = document.getElementById("nav-links");
+      const closeMenu = () => {
+        links.classList.remove("open");
+        toggle.classList.remove("active");
+        toggle.setAttribute("aria-expanded", "false");
+      };
+      toggle.addEventListener("click", () => {
+        const open = links.classList.toggle("open");
+        toggle.classList.toggle("active", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      links
+        .querySelectorAll("a")
+        .forEach((a) => a.addEventListener("click", closeMenu));
+      document.addEventListener("click", (e) => {
+        if (!links.classList.contains("open")) return;
+        if (e.target.closest(".nav")) return;
+        closeMenu();
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          links.classList.remove("open");
+          toggle.classList.remove("active");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeMenu();
+        }
+      });
+
+      const certificates = [
+        {
+          title: "Basic Sports Nutrition Certificate",
+          org: "Be Medic Academy",
+          authority: "Be Medic Academy",
+          year: "2025",
+          date: "Dec 2025",
+          category: "PE",
+          image: "certificates/1.jpg",
+          alt: "Basic Sports Nutrition Certificate",
+        },
+        {
+          title: "Diet Planning Nutrition Certificate ",
+          org: "Be Medic Academy",
+          authority: "Be Medic Academy",
+          year: "2025",
+          date: "Dec 2025",
+          category: "PE",
+          image: "certificates/2.jpg",
+          alt: "Diet Planning Nutrition Certificate ",
+        },
+        {
+          title: "Strength and conditioning",
+          org: "IUSCA",
+          authority: "IUSCA",
+          year: "2025",
+          date: "Jan 2025",
+          category: "Training",
+          image: "certificates/3.jpg",
+          alt: "Student Fitness & Wellness Specialist Certificate",
+        },
+      ];
+
+      const certGrid = document.getElementById("cert-grid");
+      const overlay = document.getElementById("overlay");
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalMeta = document.getElementById("modal-meta");
+      const modalDesc = document.getElementById("modal-desc");
+      const modalImg = document.getElementById("modal-img");
+      const imageWrap = document.getElementById("image-wrap");
+      const closeBtn = document.getElementById("modal-close");
+
+      function renderCards() {
+        certGrid.innerHTML = "";
+        certificates.forEach((c) => {
+          const card = document.createElement("div");
+          card.className = "cert-card";
+          card.setAttribute("role", "button");
+          card.setAttribute("tabindex", "0");
+          card.setAttribute("aria-label", `${c.title} — ${c.org}, ${c.year}`);
+          card.innerHTML = `
+            <div class="cert-title">${c.title}</div>
+            <div class="cert-meta">
+              <span>${c.org}</span>
+              <span>${c.year}</span>
+            </div>
+            <div class="tag"><i class="fa-solid fa-award"></i> ${c.category}</div>
+          `;
+          card.addEventListener("click", () => openModal(c));
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openModal(c);
+            }
+          });
+          certGrid.appendChild(card);
+        });
+      }
+
+      function openModal(c) {
+        modalTitle.textContent = c.title;
+        modalMeta.innerHTML = `
+          <div><strong>Issuing Authority:</strong> ${c.authority}</div>
+          <div><strong>Organization:</strong> ${c.org}</div>
+          <div><strong>Date / Year:</strong> ${c.date || c.year}</div>
+          <div><strong>Category:</strong> ${c.category}</div>
+        `;
+        modalDesc.textContent = c.description;
+        modalImg.src = c.image;
+        modalImg.alt = c.alt || c.title;
+        overlay.classList.add("open");
+        closeBtn.focus();
+        imageWrap.classList.remove("zoom");
+      }
+      function closeModal() {
+        overlay.classList.remove("open");
+      }
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) {
+          closeModal();
+        }
+      });
+      closeBtn.addEventListener("click", closeModal);
+      imageWrap.addEventListener("click", () => {
+        imageWrap.classList.toggle("zoom");
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+        }
+      });
+
+      renderCards();
+
+      //   document
+      //     .getElementById("download-cv")
+      //     .addEventListener("click", async (e) => {
+      //       e.preventDefault();
+      //       const candidates = ["Muskan_Patel_CV.pdf", "cv.pdf", "resume.pdf"];
+      //       for (const path of candidates) {
+      //         try {
+      //           const res = await fetch(path, { method: "HEAD" });
+      //           if (res.ok) {
+      //             const a = document.createElement("a");
+      //             a.href = path;
+      //             a.download = path;
+      //             document.body.appendChild(a);
+      //             a.click();
+      //             document.body.removeChild(a);
+      //             return;
+      //           }
+      //         } catch (_) {}
+      //       }
+      //       alert(
+      //         "PDF not found. Please add your resume as Muskan_Patel_CV.pdf (or cv.pdf/resume.pdf) in the site folder."
+      //       );
+      //     });
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
